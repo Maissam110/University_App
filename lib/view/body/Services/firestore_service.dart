@@ -18,6 +18,11 @@ class FirestoreService {
         // Extract faculty level data
         String facultyName = facultyDoc.get('name') ?? "N/A";
         //  We will add remaining field later
+        double latitude = facultyDoc.get('latitude') ?? 0.0;
+        double longitude = facultyDoc.get('longitude') ?? 0.0;
+        double rating = facultyDoc.get('rating') ?? 0;
+        int number = facultyDoc.get('number') ?? 1;
+        String universityImage = facultyDoc.get('universityImage') ?? "";
 
         //  Fatch all course under this faculty
         QuerySnapshot courseSnapshop = await facultyDoc.reference
@@ -173,7 +178,17 @@ class FirestoreService {
           );
         }
         // add the faculty with its course list to the faculties list
-        faculties.add(Faculty(name: facultyName, course: courses));
+        faculties.add(
+          Faculty(
+            name: facultyName,
+            course: courses,
+            latitude: latitude,
+            longitude: longitude,
+            rating: rating,
+            number: number,
+            universityImage: universityImage,
+          ),
+        );
       }
     } catch (e) {
       e.toString();

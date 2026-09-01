@@ -27,7 +27,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   void initState() {
     _screen = [
       HomeScreen(semester: widget.semester, course: widget.course),
-      GoogleMapScreen(),
+      GoogleMapScreen(faculty: widget.faculty),
       ProfileScreen(),
     ];
     super.initState();

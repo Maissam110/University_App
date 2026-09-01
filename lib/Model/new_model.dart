@@ -3,21 +3,21 @@ class Faculty {
   final String name;
   final List<Course> course;
   //  Latitude, longtitude, rating, unversityImage and number are only to map the display the department location
-  // final double latitude;
-  // final double longitude;
-  // final double rating;
-  // final int number;
-  // final String universityImage;
+  final double latitude;
+  final double longitude;
+  final double rating;
+  final int number;
+  final String universityImage;
 
   Faculty({
     required this.name,
 
     required this.course,
-    // required this.latitude,
-    // required this.longitude,
-    // required this.rating,
-    // required this.number,
-    // required this.universityImage,
+    required this.latitude,
+    required this.longitude,
+    required this.rating,
+    required this.number,
+    required this.universityImage,
   });
 }
 

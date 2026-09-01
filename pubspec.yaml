@@ -48,6 +48,7 @@ dependencies:
   firebase_messaging:
   flutter_rating_bar:
   firebase_auth:
+  permission_handler:
 
 dev_dependencies:
   flutter_test:
