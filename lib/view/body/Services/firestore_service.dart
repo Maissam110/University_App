@@ -56,6 +56,32 @@ class FirestoreService {
             print("Error fetching imageList field: $e");
           }
 
+          //  Try to extract "feeStructure" field
+
+          try {
+            var feeStructureData = courseDoc.get("feeStructure");
+            if (feeStructureData != null && feeStructureData is List) {
+              feeStructure = List<String>.from(feeStructureData);
+            }
+          } catch (e) {
+            // ignore: avoid_print
+            print("Error fetching feeStructure field: $e");
+          }
+
+          //  Try to extract "notification" field
+
+          try {
+            var notificationData = courseDoc.get("notification");
+            if (notificationData != null && notificationData is List) {
+              notification = List<Map<String, dynamic>>.from(
+                notificationData.reversed,
+              );
+            }
+          } catch (e) {
+            // ignore: avoid_print
+            print("Error fetching notification field: $e");
+          }
+
           //  Fetch semester under this course ordered by the order field
           QuerySnapshot semesterSnapshop = await courseDoc.reference
               .collection('Semesters')
@@ -105,6 +131,18 @@ class FirestoreService {
             } catch (e) {
               // ignore: avoid_print
               print("Error fetching question data: $e");
+            }
+
+            //  Try to extract "Exam" field
+
+            try {
+              var examData = semDoc.get("exam");
+              if (examData != null && examData is List) {
+                exam = List<Map<String, dynamic>>.from(examData);
+              }
+            } catch (e) {
+              // ignore: avoid_print
+              print("Error fetching Exam data: $e");
             }
 
             //  Add Semester to the list

@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:university/Model/new_model.dart';
 import 'package:university/route.dart';
+import 'package:university/view/body/Screens/Home/Administrative/administrative.dart';
 import 'package:university/view/body/Screens/Home/contact.dart';
 import 'package:university/view/body/Screens/Home/developer.dart';
+import 'package:university/view/body/Screens/Home/notic_board.dart';
 import 'package:university/view/body/Screens/Widgets/common_card.dart';
 import 'package:university/view/body/Screens/Widgets/my_snackbar.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -26,7 +28,9 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              NavigationHelper.push(context, NoticBoard(course: course));
+            },
             child: Stack(
               children: [
                 Icon(Iconsax.notification_bing, size: 30),
@@ -162,6 +166,12 @@ class HomeScreen extends StatelessWidget {
                       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQzjwgPUf6ifJTXQ4__aTSBn2MzHzGX33TdHbmbdJDrgw-CmUZf2KsWGqX&s=10",
                 ),
                 CommonCard(
+                  onTap: () {
+                    NavigationHelper.push(
+                      context,
+                      Administrative(semester: semester, course: course),
+                    );
+                  },
                   title: "Administrative",
                   imageofCard:
                       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsy5BZ7JgRKlQMJxiKK7_7WNRz9qM3KP9aCeBodAAgn0BsAERUzIGctHU7&s=10",
