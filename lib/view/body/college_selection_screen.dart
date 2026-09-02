@@ -112,7 +112,7 @@ class _CollegeSelectionScreenState
                     underline: SizedBox(),
                     style: TextStyle(
                       color: color,
-                      fontSize: 30,
+                      fontSize: 20,
                       fontWeight: FontWeight.w500,
                     ),
                     // Expended dropdown to full width
